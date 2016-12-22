@@ -58,6 +58,20 @@ module RDStation
       post_with_body("/services/#{@auth_token}/generic", :body => lead_hash )
     end
 
+    #
+    # param lead:
+    #   id ou email do Lead a ser alterado
+    #
+    # param tags:
+    #   string com tags separadas por vírgula, ex: "tag1, tag-1, tag_3"
+    #
+    def tag_lead(lead, tags)
+      lead_hash = auth_token_hash.merge({:tags => tags})
+
+      post_with_body("/leads/#{lead}/tags", :body => lead_hash.to_json, :headers => {'Content-Type' => 'application/json'})
+    end
+
+
   private
     def base_url
       "https://www.rdstation.com.br/api/1.2"

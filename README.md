@@ -47,6 +47,12 @@ rdstation_client = RDStation::Client.new('rdstation_token', 'auth_token')
 rdstation_client.change_lead_status(email: 'joe@foo.bar', status: 'won', value: 999)
 ```
 
+### Add Tags to Lead
+
+```ruby
+rdstation_client = RDStation::Client.new('rdstation_token', 'auth_token')
+rdstation_client.tag_lead('joe@foo.bar', 'tag1, tag-1, tag_3')
+```
 
 ## Contributing
 
